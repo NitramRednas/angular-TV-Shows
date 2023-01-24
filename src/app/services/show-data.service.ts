@@ -6,4 +6,9 @@ export class ShowDataService {
   constructor() {
     this.shows.push(new Show(1, 'Paw Patrol'));
    }
+   saveShow(show: Show) {
+
+    this.shows.push(show);
+    
+    }
 }

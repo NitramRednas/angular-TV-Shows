@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Show } from '../../model/show';
+import { ShowDataService } from '../../services/show-data.service';
 
 @Component({
   selector: 'app-show-form',
@@ -15,5 +16,9 @@ export class ShowFormComponent implements OnInit {
 
   ngOnInit() {
   }
+  save(showDataService : ShowDataService) {
 
+    this.showDataService.saveShow(this.show);
+    
+    }
 }
