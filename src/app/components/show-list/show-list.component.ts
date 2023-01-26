@@ -19,4 +19,11 @@ export class ShowListComponent implements OnInit {
   get shows(): Show[] {
     return this.showDataService.shows;
   }
+
+  editShow : Show;
+
+  edit(show : Show){
+    show = this.editShow;
+  }
+
 }
