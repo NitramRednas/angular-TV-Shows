@@ -26,4 +26,24 @@ export class ShowListComponent implements OnInit {
     show = this.editShow;
   }
 
+  toEdit(show : Show) : boolean{
+    if(!this.editShow){
+      return false;
+    }
+    else if (this.editShow !== show){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  saveEdit(){
+    this.editShow = null;
+  }
+  
+  delete(show : Show){
+    return this.showDataService.deleteShow(show);
+  }
+
 }

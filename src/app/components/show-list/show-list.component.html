@@ -8,8 +8,9 @@
     </tr>
   </thead>
 
-  <tbody>
-    <tr *ngFor="let s of shows">
+  <tbody >
+  <ng-container *ngFor="let s of shows">
+    <tr *ngIf="!toEdit(s)">
       <td>
         {{s.id}}
       </td>
@@ -18,18 +19,36 @@
       </td>
   
       <td>
-        <span class="material-icons">
+        <button type="submit" (click)="edit(s)" class="material-icons">
           edit
-          </span>
+        </button>
       </td>
       <td>
-        <span class="material-icons">
+        <button type="submit" (click)="delete(s)" class="material-icons">
           delete
-          </span>
+        </button>
           
       </td>
     </tr>
-  </tbody>
 
+    <tr *ngIf="!toEdit(s)">
+      <td> {{s.id}}
+      <div class="mb-2"> 
+      <label class="form-label" for="newShowID"></label> 
+      <input class="form-control" id="newShowID" name="newShowID" type="number" placeholder="Hier die neue ID eingeben!">
+      </div>
+    </td>
+      <td> <input [(ngModel)] ="s.id">
+        <div>
+        <label class="form-label" for="newTitelId"></label>
+        <input class="form-control" id="newTitelId" name="newTitelId" type="text"
+        placeholder="Hier den neuen Titel eingeben">
+        </div>
+    </td>
+    <td colspan="2"> <button type="submit" class="btn btn-primary" (click)="saveEdit()"> save </button>
+    </td>
+    </tr>
+    </ng-container>
+  </tbody>
 </table>
 
